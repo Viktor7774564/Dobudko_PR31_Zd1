@@ -1,0 +1,51 @@
+﻿<Window x:Class="BeautySalon.AddServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySalon"
+        mc:Ignorable="d"
+        DataContext="{StaticResource ServiceVM}"
+        Name="AddServWND"
+        Title="AddServiceWindow" Height="500" Width="500">
+    
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="400" VerticalAlignment="Center">
+
+            <Label Content="Добавление услуги" HorizontalAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Tahoma" />
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="TitleText" Text="{Binding STitle, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="CostTetxt" Text="{Binding SCost, UpdateSourceTrigger=PropertyChanged}" MaxLength="7"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="DurText" Text="{Binding SDurationInSeconds, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox Text="{Binding SDiscount, UpdateSourceTrigger=PropertyChanged}" MaxLength="2"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="ImgText" Text="{Binding SMainImagePath, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="140" Margin="0,0,10,0" Command="{Binding AddPhotoE}">Добавить картинку</Button>
+                <Button Width="140">Удалить картинку</Button>
+            </StackPanel>
+
+
+            <Button Height="50" Width="Auto" FontSize="19" FontFamily="Tahoma" Background="White" Margin="10" Command="{Binding AddServ}" CommandParameter="{Binding ElementName=AddServWND}">Сохранить</Button>
+
+
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="BeautySalon.RenameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySalon"
+        mc:Ignorable="d"
+        DataContext="{StaticResource ServiceVM}"
+        Name="EditWND"
+        Title="RenameWindow" Height="550" Width="500">
+   
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="400" VerticalAlignment="Center">
+
+            <Label Content="Редактирование услуги" HorizontalAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Tahoma" />
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="TitleText" Text="{Binding SelectServ.Title}"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="CostTetxt" Text="{Binding SelectServ.Cost}"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="DurText" Text="{Binding SelectServ.DurationInSeconds}"/>
+            </Border>
+            
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox Text="{Binding SelectServ.Discount}"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="39" Margin="10">
+
+                <TextBox x:Name="ImgText" Text="{Binding SelectServ.MainImagePath, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="140" Margin="0,0,10,0" Command="{Binding AddPhoto}">Добавить картинку</Button>
+                <Button Width="140">Удалить картинку</Button>
+            </StackPanel>
+            
+
+            <Button Height="50" Width="Auto" FontSize="19" FontFamily="Tahoma" Background="White" Margin="10" Command="{Binding SaveChanges}">Сохранить</Button>
+
+            <Button Height="50" Width="Auto" FontSize="19" FontFamily="Tahoma" Background="White" Margin="10" Command="{Binding CloseWND}" CommandParameter="{Binding ElementName=EditWND}">Назад</Button>
+
+
+        </StackPanel>
+    </Grid>
+</Window>
